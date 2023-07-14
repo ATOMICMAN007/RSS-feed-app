@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 feedparser = "*"
+textual-dev = "*"
 
 [dev-packages]
 
