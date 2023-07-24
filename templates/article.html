@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <a href="{{ entry.link }}" class="list-group-item list-group-item-action" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ entry.title }}</h5>
-      <small>{{ entry.published }}</small>
-    </div>
-    <p class="mb-1">By: {{ entry.author }}</p>
-    <small>{{ entry.summary }}</small>
-  </a>
+<div class="px-3">
+<a href="{{ entry.link }}" class="list-group-item list-group-item-action" aria-current="true">
+  <div class="d-flex w-100 justify-content-between">
+    <h2 class="mb-1">{{ entry.title }}</h2>
+    <small>{{ entry.published }}</small>
+  </div>
+  <h5 class="mb-1">By: {{ entry.author }}</h5>
+</a>
+<hr class="border border-2 opacity-50">
+<small>{{ entry.summary }}</small>
+</div>
 {% endblock %}
