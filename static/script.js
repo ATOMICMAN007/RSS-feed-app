@@ -65,6 +65,47 @@
   })
 
   window.addEventListener('DOMContentLoaded', () => {
+    function storeJson(key, jsonObject) {
+      const jsonString = JSON.stringify(jsonObject)
+
+      localStorage.setItem(key, jsonString)
+    }
+
+    function handleAddFeed(event) {
+      event.preventDefault()
+
+      const name = document.getElementById('feedNameInput').value
+      const link = document.getElementById('feedLinkInput').value
+
+      const jsonString = localStorage.getItem("rssfeeds")
+      const jsonObject = jsonString ? JSON.parse(jsonString) : {}
+
+      if(jsonObject.hasOwnProperty(link)) {
+        alert("This feed already exists subscribed.")
+        return
+      }
+
+      jsonObject[link] = name
+
+      storeJson("rssfeeds", jsonObject)
+      document.getElementById('addFeedForm').reset()
+    }
+
+    function displayAlert(msg) {
+      const alertElement = document.getElementById('alertMessage')
+      alertElement.classList.remove('d-none')
+      alertElement.classList.add('show')
+
+      setTimeout(() => {
+        alertElement.classList.remove('show')
+        setTimeout(() => {
+          alertElement.classList.add('d-none')
+        }, 150)
+      }, 3000)
+    }
+
+    document.getElementById('addFeedForm').addEventListener('submit', handleAddFeed)
+
     showActiveTheme(getPreferredTheme())
 
     document.querySelectorAll('[data-bs-theme-value]')
