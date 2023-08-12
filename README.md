@@ -1,6 +1,8 @@
 # RSS Feed App
 Simple RSS feed reader for my convenience and learning about RSS feeds in general.
 
+## Branch No Longer maintained
+
 ## TODO
 - [x]  Refresh feed functionaity.
 - [x] When an article page is refreshed, update the data.
